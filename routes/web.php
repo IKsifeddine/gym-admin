@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[ClientController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/clients/search', [ClientController::class, 'search'])->name('clients.search');
 
 
 Route::get('/abonnements', function () {

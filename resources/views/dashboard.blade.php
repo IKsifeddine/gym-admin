@@ -5,12 +5,12 @@
                 {{ __('Liste des clients') }}
             </h2>
             <div class="flex">
-                <form action="" class="flex items-center space-x-2">
+                <form action="{{ route('clients.search') }}" method="GET" class="flex items-center space-x-2">
                     @csrf
-                    <input type="search" class="drop-shadow-md p-2 border focus:outline-none">
-                    <button class="bg-green-400 rounded-lg p-2 drop-shadow-md text-white font-semibold">Chercher</button>
-                    <button class="bg-blue-300 rounded-lg p-2 drop-shadow-md text-white font-semibold">Ajouter un client</button>
+                    <input type="search" name="cin" placeholder="Rechercher par CIN" class="drop-shadow-md p-2 border focus:outline-none">
+                    <button type="submit" class="bg-green-400 rounded-lg p-2 drop-shadow-md text-white font-semibold">Chercher</button>
                 </form>
+                <a href="" class="bg-blue-300 rounded-lg p-2 drop-shadow-md text-white font-semibold ml-2">Ajouter un client</a>
             </div>
         </div>
     </x-slot>
