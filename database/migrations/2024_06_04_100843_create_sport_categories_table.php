@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sport_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('nom')->unique();
+            $table->string('nom');
             $table->float('prix');
             $table->string('description');
             $table->timestamps();
