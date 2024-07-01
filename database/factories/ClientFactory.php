@@ -23,6 +23,8 @@ class ClientFactory extends Factory
             'prenom' => fake()->lastName(),
             'adress' => fake()->address(),
             'telephone' => fake()->phoneNumber(),
+            'cin' => fake()->randomAscii(),
+            'email' => fake()->email(),
             'sport_categories_id' => SportCategorie::inRandomOrder()->first()->id,
             'status' => fake()->boolean(),
             'photo' => 'https://wac-cdn.atlassian.com/fr/dam/jcr:ba03a215-2f45-40f5-8540-b2015223c918/Max-R_Headshot%20(1).jpg?cdnVersion=1868'

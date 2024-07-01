@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('prenom');
             $table->string('adress');
             $table->string('telephone');
+            $table->string('cin');
+            $table->string('email');
             $table->foreignId('sport_categories_id');
             $table->string('status');
             $table->string('photo');
