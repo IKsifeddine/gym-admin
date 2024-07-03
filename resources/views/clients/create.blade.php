@@ -59,7 +59,7 @@
                         <div>
                             <label for="sport_categories_id" class="block text-sm font-medium text-gray-700">Catégorie
                                 Sportive</label>
-                            <select name="sport_categorie_id" id="sport_categorie_id"
+                            <select name="sport_categories_id" id="sport_categories_id"
                                 class="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-lg focus:border-purple-500 focus:ring-purple-500 focus:outline-none transition duration-150 ease-in-out"
                                 required>
                                 @foreach ($sportCategories as $category)
@@ -69,8 +69,8 @@
                         </div>
 
                         <div>
-                            <label for="statut" class="block text-sm font-medium text-gray-700">Statut</label>
-                            <select name="statut" id="statut"
+                            <label for="status" class="block text-sm font-medium text-gray-700">Statut</label>
+                            <select name="status" id="status"
                                 class="mt-1 block w-full bg-gray-100 border-gray-300 rounded-md shadow-lg focus:border-purple-500 focus:ring-purple-500 focus:outline-none transition duration-150 ease-in-out"
                                 required>
                                 <option value="payé">Payé</option>
