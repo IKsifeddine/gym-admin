@@ -10,7 +10,7 @@
                     <input type="search" name="cin" placeholder="Rechercher par CIN" class="drop-shadow-md p-2 border focus:outline-none">
                     <button type="submit" class="bg-green-400 rounded-lg p-2 drop-shadow-md text-white font-semibold">Chercher</button>
                 </form>
-                <a href="" class="bg-blue-300 rounded-lg p-2 drop-shadow-md text-white font-semibold ml-2">Ajouter un client</a>
+                <a href="{{ route('clients.create') }}" class="bg-blue-300 rounded-lg p-2 drop-shadow-md text-white font-semibold ml-2">Ajouter un client</a>
             </div>
         </div>
     </x-slot>

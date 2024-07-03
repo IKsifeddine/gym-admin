@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\SportCategorie;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -22,4 +23,10 @@ class ClientController extends Controller
 
         return view('dashboard', compact('clients'));
     }
+    public function create()
+    {
+        $sportCategories = SportCategorie::all();
+        return view('clients.create', compact('sportCategories'));
+    }
+    
 }
