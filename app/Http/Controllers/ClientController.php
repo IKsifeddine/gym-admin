@@ -41,7 +41,7 @@ class ClientController extends Controller
             'status' => 'required|string|max:255',
             'photo' => 'nullable|image|max:2048', // Max file size 2MB for photo
         ]);
-    
+
         $client = new Client;
         $client->nom = $request->nom;
         $client->prenom = $request->prenom;
@@ -51,14 +51,49 @@ class ClientController extends Controller
         $client->email = $request->email;
         $client->sport_categories_id = $request->sport_categories_id;
         $client->status = $request->status;
-    
+
         if ($request->hasFile('photo')) {
             $client->photo = $request->file('photo')->store('photos', 'public');
         }
-    
+
         $client->save();
-    
+
         return redirect()->route('dashboard')->with('success', 'Client ajouté avec succès.');
     }
-    
+
+    public function destroy ($id)
+    {
+        $client= Client::findOrfail($id);
+        $client->delete();
+        return redirect()->route('dashboard')->with('success', 'Client deleted successfully.');
+
+    }
+    public function edit($id)
+    {
+        $client = Client::findOrFail($id);
+        return view('clients.edit', compact('client'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'adress' => 'required|string|max:255',
+            'telephone' => 'required|string|max:15',
+            'cin' => 'required|string|max:10',
+            'email' => 'required|string|email|max:255',
+            'sport_categories_id' => 'required|integer',
+            'status' => 'required|string|max:255',
+            'photo' => 'nullable|string|max:255',
+        ]);
+
+        $client = Client::findOrFail($id);
+        $client->update($request->all());
+        $client->email = $request->email;
+
+        return redirect()->route('dashboard')->with('success', 'Client updated successfully.');
+    }
 }
+
+

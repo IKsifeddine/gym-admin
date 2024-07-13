@@ -10,6 +10,10 @@ Route::get('/',[ClientController::class,'index'])->middleware(['auth', 'verified
 Route::get('/clients/search', [ClientController::class, 'search'])->name('clients.search');
 Route::get('/clients/create', [ClientController::class, 'create'])->name('clients.create');
 Route::post('/clients', [ClientController::class, 'store'])->name('clients.store');
+Route::delete('/clients/{clients}',[ClientController::class,'destroy'])->name('clients.destroy');
+Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
+
 
 
 

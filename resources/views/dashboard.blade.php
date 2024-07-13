@@ -45,10 +45,14 @@
                                 <td class="py-3 px-4 border-b">{{ $client->email }}</td>
                                 <td class="py-3 px-4 border-b">{{ $client->sport_categories_id }}</td>
                                 <td class="py-3 px-4 border-b">{{ $client->status }}</td>
-                                <td class="py-3 px-4 border-b"><img src="{{ $client->photo }}" alt="Photo" class="w-10 h-10 rounded-full"></td>
+                                <td class="py-3 px-4 border-b"><img src="{{ asset('storage/' . $client->photo) }}" alt="Photo" class="w-10 h-10 rounded-full"></td>
                                 <td class="py-3 px-4 border-b flex space-x-2">
-                                    <button class="bg-red-500 rounded-lg p-2 drop-shadow-md text-white font-semibold">Supprimer</button>
-                                    <button class="bg-green-400 rounded-lg p-2 drop-shadow-md text-white font-semibold">Modifier</button>
+                                    <form action="{{ route('clients.destroy', $client->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="bg-red-500 rounded-lg p-2 drop-shadow-md text-white font-semibold">Supprimer</button>
+                                    </form>
+                                    <a href="{{ route('clients.edit', $client->id) }}" class="bg-green-400 rounded-lg p-2 drop-shadow-md text-white font-semibold">Modifier</a>
                                 </td>
                             </tr>
                             @endforeach
