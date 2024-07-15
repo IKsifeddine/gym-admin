@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ProfileController;
 use App\Models\Client;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AbonementController;
 
 
 Route::get('/',[ClientController::class,'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -13,6 +14,11 @@ Route::post('/clients', [ClientController::class, 'store'])->name('clients.store
 Route::delete('/clients/{clients}',[ClientController::class,'destroy'])->name('clients.destroy');
 Route::get('/clients/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
 Route::put('/clients/{client}', [ClientController::class, 'update'])->name('clients.update');
+
+
+// routes/web.php
+Route::get('abonements/create', [AbonementController::class, 'create'])->name('abonements.create');
+Route::post('abonements', [AbonementController::class, 'store'])->name('abonements.store');
 
 
 
